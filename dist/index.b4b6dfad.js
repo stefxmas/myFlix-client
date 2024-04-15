@@ -27203,25 +27203,25 @@ const MainView = ()=>{
         {
             id: 2,
             title: "Avengers Infinity War",
-            image: "https://www.imdb.com/title/tt4154756/mediaviewer/rm4044245504/",
+            image: "https://m.media-amazon.com/images/I/81V1KTnYKwL._SY500_.jpg",
             author: "Joe Russo"
         },
         {
             id: 3,
             title: "John Wick",
-            image: "https://www.imdb.com/title/tt2911666/mediaviewer/rm1723909376/",
+            image: "https://en.wikipedia.org/wiki/John_Wick_%28film%29#/media/File:John_Wick_TeaserPoster.jpg",
             author: "Chad Stahelski"
         },
         {
             id: 4,
             title: "The Shining",
-            image: "https://www.imdb.com/title/tt0081505/mediaviewer/rm3901111552/",
+            image: "https://m.media-amazon.com/images/I/91yYss6rrXL._SL1500_.jpg",
             author: "Stanley Kubrick"
         },
         {
             id: 5,
             title: "Harold & Kumar Go to White Castle",
-            image: "https://www.imdb.com/title/tt0366551/mediaviewer/rm484782080/",
+            image: "https://akns-images.eonline.com/eol_images/Entire_Site/2022224/rs_1024x759-220324102354-1024-John-Cho-Kel-Penn-LT-32422-shutterstock_editorial_5882973u.jpg?fit=around%7C1024:759&output-quality=90&crop=1024:759;center,top",
             author: "Danny Leiner"
         }
     ]);
@@ -27260,7 +27260,7 @@ const MainView = ()=>{
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "hBaB3lBQpEUOZQ6eh2rPafkc6sw=");
+_s(MainView, "eYpxwqd4DbGk1QxROIHg19dAe+Q=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
