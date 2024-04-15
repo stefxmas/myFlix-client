@@ -6,38 +6,38 @@ export const MainView = () => {
   const [books, setBooks] = useState([
     {
       id: 1,
-      title: "Eloquent JavaScript",
+      title: "Silence of the Lambs",
       image:
-        "https://images-na.ssl-images-amazon.com/images/I/51InjRPaF7L._SX377_BO1,204,203,200_.jpg",
-      author: "Marijn Haverbeke"
+      "https://www.indiewire.com/wp-content/uploads/2017/02/silence-of-the-lambs-anthony-hopkins-01.jpg?w=1330&h=748&crop=1",
+      author: "Jonathan Demme"
     },
     {
       id: 2,
-      title: "Mastering JavaScript Functional Programming",
+      title: "Avengers Infinity War",
       image:
-        "https://images-na.ssl-images-amazon.com/images/I/51WAikRq37L._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
-      author: "Federico Kereki"
+      "https://www.imdb.com/title/tt4154756/mediaviewer/rm4044245504/",
+      author: "Joe Russo"
     },
     {
       id: 3,
-      title: "JavaScript: The Good Parts",
+      title: "John Wick",
       image:
-        "https://images-na.ssl-images-amazon.com/images/I/5131OWtQRaL._SX381_BO1,204,203,200_.jpg",
-      author: "Douglas Crockford"
+      "https://www.imdb.com/title/tt2911666/mediaviewer/rm1723909376/",
+      author: "Chad Stahelski"
     },
     {
       id: 4,
-      title: "JavaScript: The Definitive Guide",
+      title: "The Shining",
       image:
-        "https://images-na.ssl-images-amazon.com/images/I/51HbNW6RzhL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
-      author: "David Flanagan"
+      "https://www.imdb.com/title/tt0081505/mediaviewer/rm3901111552/",
+      author: "Stanley Kubrick"
     },
     {
       id: 5,
-      title: "The Road to React",
+      title: "Harold & Kumar Go to White Castle",
       image:
-        "https://images-na.ssl-images-amazon.com/images/I/41MBLi5a4jL._SX384_BO1,204,203,200_.jpg",
-      author: "Robin Wieruch"
+      "https://www.imdb.com/title/tt0366551/mediaviewer/rm484782080/",
+      author: "Danny Leiner"
     }
   ]);
 
