@@ -27209,7 +27209,7 @@ const MainView = ()=>{
         {
             id: 3,
             title: "John Wick",
-            image: "https://en.wikipedia.org/wiki/John_Wick_%28film%29#/media/File:John_Wick_TeaserPoster.jpg",
+            image: "https://hips.hearstapps.com/hmg-prod/images/keanu-reeves-john-wick-4-1677167115.jpg?resize=980:*",
             author: "Chad Stahelski"
         },
         {
@@ -27260,7 +27260,7 @@ const MainView = ()=>{
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "eYpxwqd4DbGk1QxROIHg19dAe+Q=");
+_s(MainView, "X8CL6LkKTJ68BdRkrevrm/S7TbQ=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
