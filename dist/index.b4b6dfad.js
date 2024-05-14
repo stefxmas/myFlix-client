@@ -27225,6 +27225,32 @@ const MainView = ()=>{
             author: "Danny Leiner"
         }
     ]);
+    (0, _react.useEffect)(()=>{
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjQzODc2MDVmNjY0MjI2NGUzZjYxOWUiLCJVc2VybmFtZSI6ImpvaG5kb2UxMjExMiIsIlBhc3N3b3JkIjoiJDJiJDEwJEdEWDJkVXgubnM0a2RwN3UyLlZoZy4xb2p3OGRsUkduUDlyN3ZFbXNoOHN4elJYT1JEdUYuIiwiRW1haWwiOiJqb2huZG9lMTIxMkBlbWFpbC5jb20iLCJCaXJ0aGRheSI6IjE5NzAtMTEtMTZUMDA6MDA6MDAuMDAwWiIsIkZhdm9yaXRlTW92aWVzIjpbXSwiX192IjowLCJpYXQiOjE3MTU3MDE2MDYsImV4cCI6MTcxNjMwNjQwNiwic3ViIjoiam9obmRvZTEyMTEyIn0.1_RkR5q2j4Xbfeh5ts3tojuPQK4Nns9uJISusNiUIZU";
+        fetch("https://ajs-movie-api-598adfef849b.herokuapp.com/movies", {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            if (!response.ok) throw new Error("HTTP error " + response.status);
+            return response.json();
+        }).then((data)=>{
+            const moviesFromAPI = data.map((movie)=>{
+                return {
+                    id: movie._id,
+                    Title: movie.Title,
+                    ImagePath: movie.ImagePath,
+                    Director: movie.Director.Name,
+                    Genre: movie.Genre.Name,
+                    Description: movie.Description,
+                    Featured: movie.Featured
+                };
+            });
+            setmovies(moviesFromAPI);
+        }).catch((error)=>{
+            console.error("Error fetching movies:", error);
+        });
+    }, []);
     const [selectedmovie, setSelectedmovie] = (0, _react.useState)(null);
     if (selectedmovie) {
         if (selectedmovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
@@ -27232,7 +27258,7 @@ const MainView = ()=>{
             onBackClick: ()=>setSelectedmovie(null)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 49,
+            lineNumber: 80,
             columnNumber: 11
         }, undefined);
     }
@@ -27240,7 +27266,7 @@ const MainView = ()=>{
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 55,
+        lineNumber: 86,
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27251,16 +27277,16 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 61,
+                lineNumber: 92,
                 columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 59,
+        lineNumber: 90,
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "4BvNsjCMOrA8KZ0BwlIqeldPCbc=");
+_s(MainView, "WYXASVa5WCj/frZLmhrDmgn7sU4=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -27287,7 +27313,7 @@ const MovieCard = ({ movie, onMovieClick })=>{
         onClick: ()=>{
             onMovieClick(movie);
         },
-        children: movie.title
+        children: movie.Title
     }, void 0, false, {
         fileName: "src/components/movie-card/movie-card.jsx",
         lineNumber: 4,
@@ -27319,7 +27345,7 @@ const MovieView = ({ movie, onBackClick })=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    src: movie.image
+                    src: movie.ImagePath
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
                     lineNumber: 5,
@@ -27340,7 +27366,7 @@ const MovieView = ({ movie, onBackClick })=>{
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: movie.title
+                        children: movie.Title
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 9,
@@ -27355,14 +27381,14 @@ const MovieView = ({ movie, onBackClick })=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: "Author: "
+                        children: "Director: "
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 12,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: movie.author
+                        children: movie.Director.Name
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 13,
