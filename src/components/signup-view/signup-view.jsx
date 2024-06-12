@@ -1,4 +1,5 @@
-import{ useState } from "react";
+import { useState, useEffect } from "react";
+
 
 export const SignupView = () => {
   const [username, setUsername] = useState("");
@@ -16,7 +17,7 @@ export const SignupView = () => {
       Birthday: birthday
     };
 
-    fetch("SIGNUP_URL", {
+    fetch("https://ajs-movie-api-598adfef849b.herokuapp.com/users", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
