@@ -12,11 +12,8 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   
-  
   useEffect(() => {
-    if (!token) {
-      return;
-    }
+    
     
     fetch("https://ajs-movie-api-598adfef849b.herokuapp.com/movies", {
       headers: { Authorization: `Bearer ${token}` }
@@ -46,7 +43,7 @@ export const MainView = () => {
         console.error("Error fetching movies:", error);
       });
     
-  }, [token]);
+  }, []);
 
   const [selectedmovie, setSelectedmovie] = useState(null);
 
