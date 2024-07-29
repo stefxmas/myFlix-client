@@ -27267,17 +27267,30 @@ const MainView = ()=>{
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                movie: movie,
-                onMovieClick: (newSelectedmovie)=>{
-                    setSelectedmovie(newSelectedmovie);
-                }
-            }, movie.id, false, {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>{
+                    localStorage.clear();
+                    location.href = "/";
+                },
+                children: "Log out"
+            }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 79,
-                columnNumber: 9
-            }, undefined))
-    }, void 0, false, {
+                lineNumber: 78,
+                columnNumber: 7
+            }, undefined),
+            movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                    movie: movie,
+                    onMovieClick: (newSelectedmovie)=>{
+                        setSelectedmovie(newSelectedmovie);
+                    }
+                }, movie.id, false, {
+                    fileName: "src/components/main-view/main-view.jsx",
+                    lineNumber: 83,
+                    columnNumber: 9
+                }, undefined))
+        ]
+    }, void 0, true, {
         fileName: "src/components/main-view/main-view.jsx",
         lineNumber: 77,
         columnNumber: 5

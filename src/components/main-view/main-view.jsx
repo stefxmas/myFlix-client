@@ -75,6 +75,10 @@ export const MainView = () => {
 
   return (
     <div>
+      <button onClick={()=>{
+        localStorage.clear();
+        location.href = "/";
+      }}>Log out</button>
       {movies.map((movie) => (
         <MovieCard
         key={movie.id}
