@@ -10,7 +10,7 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser? storedUser : null);
   const [token, setToken] = useState(storedToken? storedToken : null);
   const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [selectedmovie, setSelectedmovie] = useState(null);
   
   useEffect(() => {
     
@@ -44,9 +44,9 @@ export const MainView = () => {
         console.error("Error fetching movies:", error);
       });
     
-  }, []);
+  }, [movies]);
 
-  const [selectedmovie, setSelectedmovie] = useState(null);
+
 
   if (!user) {
     return (
@@ -79,7 +79,7 @@ export const MainView = () => {
         localStorage.clear();
         location.href = "/";
       }}>Log out</button>
-      {movies.map((movie) => (
+      {movies && movies.map((movie) => (
         <MovieCard
         key={movie.id}
         movie={movie}
