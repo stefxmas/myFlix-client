@@ -13,9 +13,8 @@ export const MainView = () => {
   const [selectedmovie, setSelectedmovie] = useState(null);
   
   useEffect(() => {
-    if (!token) {
-      return;
-      }
+    if (token) {
+      
     
     //const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjQzODc2MDVmNjY0MjI2NGUzZjYxOWUiLCJVc2VybmFtZSI6ImpvaG5kb2UxMjExMiIsIlBhc3N3b3JkIjoiJDJiJDEwJEdEWDJkVXgubnM0a2RwN3UyLlZoZy4xb2p3OGRsUkduUDlyN3ZFbXNoOHN4elJYT1JEdUYuIiwiRW1haWwiOiJqb2huZG9lMTIxMkBlbWFpbC5jb20iLCJCaXJ0aGRheSI6IjE5NzAtMTEtMTZUMDA6MDA6MDAuMDAwWiIsIkZhdm9yaXRlTW92aWVzIjpbXSwiX192IjowLCJpYXQiOjE3MTU4ODM5MTUsImV4cCI6MTcxNjQ4ODcxNSwic3ViIjoiam9obmRvZTEyMTEyIn0.kNVWr3lwvgqwN7T7IiIpuMvAaJFZ79LEkzu3Dx7_Sb8";
     
@@ -46,7 +45,7 @@ export const MainView = () => {
       .catch((error) => {
         console.error("Error fetching movies:", error);
       });
-    
+    }
   }, [token, movies]);
 
 
