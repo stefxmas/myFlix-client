@@ -47,7 +47,7 @@ export const MainView = () => {
         console.error("Error fetching movies:", error);
       });
     
-  }, [movies]);
+  }, [token, movies]);
 
 
 
