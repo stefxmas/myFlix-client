@@ -38,11 +38,13 @@ export const MainView = () => {
   return (
       <Row> 
         {!user ? (
-          <>
+        
+          <Col md={5}>
             <LoginView onLoggedIn={(user) => setUser(user)} />
             or
             <SignupView />
-          </>
+          </Col>
+        
         ) : selectedMovie ? (
           <MovieView 
             movie={selectedMovie} 
@@ -53,6 +55,7 @@ export const MainView = () => {
         ) : (
           <>
             {movie.map((movie) => (
+              // <Col key={movie.id} md={3}></Col>
               <MovieCard
                 key={movie.id}
                 movie={movie}

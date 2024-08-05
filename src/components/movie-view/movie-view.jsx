@@ -1,3 +1,4 @@
+import { Container } from 'react-bootstrap';
 import './movie-view.scss';
 import Col from 'react-bootstrap/Col';
 
@@ -5,7 +6,9 @@ export const MovieView = ({ movie, onBackClick }) => {
     return (
       <div>
         <div>
-          <img src={movie.ImagePath} />
+          <img src={movie.ImagePath}
+           />
+           
         </div>
         <div>
           <span>Title: </span>
@@ -26,6 +29,7 @@ export const MovieView = ({ movie, onBackClick }) => {
     );
   };
   
+  <Container>
   <Col md={8} style={{ border: "1px solid black" }}>
          <MovieView
            style={{ border: "1px solid green" }}
@@ -33,3 +37,12 @@ export const MovieView = ({ movie, onBackClick }) => {
            onBackClick={() => setSelectedMovie(null)}
          />
        </Col>
+</Container>
+// img {
+//   width: 100%
+// }
+// return (
+//   <Row className="justify-content-md-center">
+//     …
+//   </Row>
+// );
