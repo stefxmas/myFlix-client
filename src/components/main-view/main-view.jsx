@@ -4,6 +4,8 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -11,7 +13,7 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser? storedUser : null);
   const [token, setToken] = useState(storedToken? storedToken : null);
   const [movies, setMovies] = useState([]);
-  const [selectedmovie, setSelectedmovie] = useState(null);
+  const [selectedMovie, setSelectedMovie] = useState(null);
   
   useEffect(() => {
     if (token) {
@@ -22,18 +24,20 @@ export const MainView = () => {
 
     .then((response) => response.json())
       .then((data) => {
-        const moviesFromApi = data.docs.map((doc) => {
+        const moviesFromApi = data.map((doc) => {
           return {
-            id: doc.key,
-            title: doc.title,
-            image: `https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg`,
-            Director: movie.Director.Name,
+            id: doc._id,
+            Title: doc.Title,
+            ImagePath: doc.imagePath,
+            Director: doc.Director,
+            Genre: doc.Genre
           };
         });
 
         setMovies(moviesFromApi);
       });
-  }; []);
+    }
+  }, [movies, selectedMovie, token]);
   // token, movies
   return (
       <Row> 
@@ -50,12 +54,12 @@ export const MainView = () => {
             movie={selectedMovie} 
             onBackClick={() => setSelectedMovie(null)} 
           />
-        ) : movie.length === 0 ? (
+        ) : movies.length === 0 ? (
           <div>The list is empty!</div>
         ) : (
           <>
-            {movie.map((movie) => (
-              // <Col key={movie.id} md={3}></Col>
+            {movies.map((movie) => (
+              <Col key={movie.id} md={3}>
               <MovieCard
                 key={movie.id}
                 movie={movie}
@@ -63,6 +67,7 @@ export const MainView = () => {
                   setSelectedMovie(newSelectedMovie);
                 }}
               />
+              </Col>
             ))}
           </>
         )}

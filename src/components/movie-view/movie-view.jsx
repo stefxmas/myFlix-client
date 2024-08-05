@@ -16,7 +16,7 @@ export const MovieView = ({ movie, onBackClick }) => {
         </div>
         <div>
           <span>Director: </span>
-          <span>{movie.Director.Name}</span>
+          <span>{movie.Director}</span>
         </div>
         <button
           onClick={onBackClick}
@@ -28,16 +28,7 @@ export const MovieView = ({ movie, onBackClick }) => {
       </div>
     );
   };
-  
-  <Container>
-  <Col md={8} style={{ border: "1px solid black" }}>
-         <MovieView
-           style={{ border: "1px solid green" }}
-           movie={selectedMovie}
-           onBackClick={() => setSelectedMovie(null)}
-         />
-       </Col>
-</Container>
+
 // img {
 //   width: 100%
 // }
