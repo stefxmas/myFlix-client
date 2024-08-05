@@ -19,75 +19,122 @@ export const MainView = () => {
       fetch("https://young-taiga-22993-24addf49ed31.herokuapp.com/movies", {
       headers: { Authorization: `Bearer ${token}` }
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('HTTP error ' + response.status);
-        }
-        return response.json();
-      })
+
+    .then((response) => response.json())
       .then((data) => {
-        const moviesFromAPI = data.map((movie) => {
-           
+        const moviesFromApi = data.docs.map((doc) => {
           return {
-            id: movie._id,
-            Title: movie.Title,
-            ImagePath: movie.ImagePath,
+            id: doc.key,
+            title: doc.title,
+            image: `https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg`,
             Director: movie.Director.Name,
-            Genre: movie.Genre.Name,
-            Description: movie.Description,
-            Featured: movie.Featured,
           };
         });
-        setMovies(moviesFromAPI);
-      })
-      .catch((error) => {
-        console.error("Error fetching movies:", error);
+
+        setMovies(moviesFromApi);
       });
-    }
-  }, [token, movies]);
-
-
-
-  if (!user) {
-    return (
-      <>
-        <LoginView onLoggedIn={(user, token) => {
-          setUser(user);
-          setToken(token);
-        }} />
-        or
-        <SignupView />
-      </>
-    );
-  }
-
-  if (selectedmovie) {
-    if (selectedmovie) {
-        return (
-          <MovieView movie={selectedmovie} onBackClick={() => setSelectedmovie(null)} />
-        );
-      }
-  }
-
-  if (movies.length === 0) {
-    return <div>The list is empty!</div>;
-  }
-
+  }; []);
+  // token, movies
   return (
-    <div>
-      <button onClick={()=>{
-        localStorage.clear();
-        location.href = "/";
-      }}>Log out</button>
-      {movies && movies.map((movie) => (
-        <MovieCard
-        key={movie.id}
-        movie={movie}
-        onMovieClick={(newSelectedmovie) => {
-          setSelectedmovie(newSelectedmovie);
-        }}
-      />
-      ))}
-    </div>
+      <Row> 
+        {!user ? (
+          <>
+            <LoginView onLoggedIn={(user) => setUser(user)} />
+            or
+            <SignupView />
+          </>
+        ) : selectedMovie ? (
+          <MovieView 
+            movie={selectedMovie} 
+            onBackClick={() => setSelectedMovie(null)} 
+          />
+        ) : movie.length === 0 ? (
+          <div>The list is empty!</div>
+        ) : (
+          <>
+            {movie.map((movie) => (
+              <MovieCard
+                key={movie.id}
+                movie={movie}
+                onMovieClick={(newSelectedMovie) => {
+                  setSelectedMovie(newSelectedMovie);
+                }}
+              />
+            ))}
+          </>
+        )}
+      </Row>
   );
 };
+//       .then((response) => {
+//         if (!response.ok) {
+//           throw new Error('HTTP error ' + response.status);
+//         }
+//         return response.json();
+//       })
+//       .then((data) => {
+//         const moviesFromAPI = data.map((movie) => {
+           
+//           return {
+//             id: movie._id,
+//             Title: movie.Title,
+//             ImagePath: movie.ImagePath,
+//             Director: movie.Director.Name,
+//             Genre: movie.Genre.Name,
+//             Description: movie.Description,
+//             Featured: movie.Featured,
+//           };
+//         });
+//         setMovies(moviesFromAPI);
+//       })
+//       .catch((error) => {
+//         console.error("Error fetching movies:", error);
+//       });
+//     }
+//   }, [token, movies]);
+
+
+
+//   if (!user) {
+//     return (
+//       <>
+//         <LoginView onLoggedIn={(user, token) => {
+//           setUser(user);
+//           setToken(token);
+//         }} />
+//         or
+//         <SignupView />
+//       </>
+//     );
+//   }
+
+//   if (selectedmovie) {
+//     if (selectedmovie) {
+//         return (
+//           <MovieView movie={selectedmovie} onBackClick={() => setSelectedmovie(null)} />
+//         );
+//       }
+//   }
+
+//   if (movies.length === 0) {
+//     return <div>The list is empty!</div>;
+//   }
+
+//   return (
+//     <div>
+//       <button onClick={()=>{
+//         localStorage.clear();
+//         location.href = "/";
+//       }}>Log out</button>
+//       {movies && movies.map((movie) => (
+//         <MovieCard
+//         key={movie.id}
+//         movie={movie}
+//         onMovieClick={(newSelectedmovie) => {
+//           setSelectedmovie(newSelectedmovie);
+//         }}
+//       />
+//       ))}
+//     </div>
+//   );
+// };

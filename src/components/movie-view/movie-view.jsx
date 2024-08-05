@@ -1,4 +1,6 @@
 import './movie-view.scss';
+import Col from 'react-bootstrap/Col';
+
 export const MovieView = ({ movie, onBackClick }) => {
     return (
       <div>
@@ -24,3 +26,10 @@ export const MovieView = ({ movie, onBackClick }) => {
     );
   };
   
+  <Col md={8} style={{ border: "1px solid black" }}>
+         <MovieView
+           style={{ border: "1px solid green" }}
+           movie={selectedMovie}
+           onBackClick={() => setSelectedMovie(null)}
+         />
+       </Col>
