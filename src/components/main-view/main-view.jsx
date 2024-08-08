@@ -42,6 +42,11 @@ export const MainView = () => {
   }, [movies, selectedMovie, token]);
   // token, movies
   return (
+    <div style={{background: "#d5d5d5"}}>
+      <button onClick={()=>{
+        localStorage.clear();
+        location.href = "/";
+      }}>Log out</button>
       <Row> 
         {!user ? (
         
@@ -74,6 +79,7 @@ export const MainView = () => {
           </>
         )}
       </Row>
+      </div>
   );
 };
 //       .then((response) => {
