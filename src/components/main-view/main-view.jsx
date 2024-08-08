@@ -29,9 +29,9 @@ export const MainView = () => {
           return {
             id: doc._id,
             Title: doc.Title,
-            ImagePath: doc.imagePath,
-            Director: doc.Director,
-            Genre: doc.Genre,
+            ImagePath: doc.ImagePath,
+            Director: doc.Director.Name,
+            Genre: doc.Genre.Name,
             Description: doc.Description,
           };
         });

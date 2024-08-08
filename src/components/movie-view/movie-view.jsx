@@ -3,10 +3,11 @@ import './movie-view.scss';
 import Col from 'react-bootstrap/Col';
 
 export const MovieView = ({ movie, onBackClick }) => {
-    return (
+  console.log(movie)
+  return (
       <div>
         <div>
-          <img src={movie.ImagePath}
+          <img src={movie.ImagePath} width={250} height={250}
            />
            
         </div>
