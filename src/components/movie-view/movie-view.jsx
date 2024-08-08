@@ -1,9 +1,15 @@
+import { Container } from 'react-bootstrap';
 import './movie-view.scss';
+import Col from 'react-bootstrap/Col';
+
 export const MovieView = ({ movie, onBackClick }) => {
-    return (
+  console.log(movie)
+  return (
       <div>
         <div>
-          <img src={movie.ImagePath} />
+          <img src={movie.ImagePath} width={250} height={250}
+           />
+           
         </div>
         <div>
           <span>Title: </span>
@@ -11,8 +17,11 @@ export const MovieView = ({ movie, onBackClick }) => {
         </div>
         <div>
           <span>Director: </span>
-          <span>{movie.Director.Name}</span>
+          <span>{movie.Director}</span>
         </div>
+        <p>
+        {movie.Description}
+        </p>
         <button
           onClick={onBackClick}
           className="back-button"
@@ -23,4 +32,12 @@ export const MovieView = ({ movie, onBackClick }) => {
       </div>
     );
   };
-  
+
+// img {
+//   width: 100%
+// }
+// return (
+//   <Row className="justify-content-md-center">
+//     …
+//   </Row>
+// );

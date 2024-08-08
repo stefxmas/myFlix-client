@@ -2,38 +2,31 @@ import { MovieView } from "../movie-view/movie-view";
 
   // Here you import the PropTypes library
 import PropTypes from "prop-types";
-
+import { Button, Card } from "react-bootstrap";
 // The BookCard function component 
 export const MovieCard = ({ movie, onMovieClick }) => {
   console.log(movie)
   return (
-    <div
-      onClick={() => {
+    
+      <Card>
+      <Card.Img variant="top" src={movie.ImagePath} />
+       <Card.Body>
+         <Card.Title>{movie.Title}</Card.Title>
+         <Card.Text>{movie.Description}</Card.Text>
+         <Button onClick={() => {
         onMovieClick(movie);
-      }}
-    >
-      {movie.Title}
-    </div>
+      }} variant="link">
+           Open
+         </Button>
+       </Card.Body>
+     </Card>
+     
   );
 };
 
-// import PropTypes from "prop-types";
-// import { Button, Card } from "react-bootstrap";
+ 
 
-// export const BookCard = ({ book, onBookClick }) => {
-//   return (
-//     <Card>
-//       <Card.Img variant="top" src={book.image} />
-//       <Card.Body>
-//         <Card.Title>{book.title}</Card.Title>
-//         <Card.Text>{book.author}</Card.Text>
-//         <Button onClick={() => onBookClick(book)} variant="link">
-//           Open
-//         </Button>
-//       </Card.Body>
-//     </Card>
-//   );
-// };
+
 
 
 
